@@ -24,7 +24,7 @@
             }
             curl $opts -F f:1='<-' $* ix.io/$id
         }
-
+        
 if [ -f ix.txt ]
 then
         IXCONTENT=$(cat ix.txt)
@@ -35,6 +35,7 @@ then
         else
                 echo "ixid.txt missing"
                 sleep 1
+                echo account create | ix
                 echo "creating ix.io website..."
                 echo $IXCONTENT | ix > ixid.txt
                 sed -e "s/http:\/\/ix.io\///g" -i ixid.txt
